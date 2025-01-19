@@ -84,6 +84,7 @@
 
 // ให้ user แต่ละคน สั่งสินค้าคนละ 1 order และ 1 ตะกร้าสินค้า โดยมากกว่า 1 ชิ้น
 
+
 import { WebUser } from "./WebUser";
 import { Order } from "./Order";
 import { LineItem } from "./LineItem";
@@ -91,60 +92,17 @@ import { Shopping_Cart } from "./Shopping_Cart";
 import { UserState } from "./UserState";
 import { Product } from "./Product";
 import { OrderStatus } from "./OrderStatus";
-import { Payment } from "./Payment";
+import { Payment } from "./Payment"
 
-const user1 = new WebUser("nabnoeyy", "1902n", UserState);
-const product = new Product("Kuay02", "nabnoey", "BFJ02");
-const lineItem = new LineItem(4, 569, product);
-const order1 = new Order("LAY1", "คือไร งง", "01/01/2025", "03/01/2025", OrderStatus.NEW, [lineItem], 0);
-const shopping = new Shopping_Cart(order1);
+const user1 = new WebUser ("nabnoeyy","1902n",UserState)
+const product = new Product ("Kuay02","สมุดเวทมนต์","BFJ02")
+const lineItem = new LineItem(4,569,product.getName())
+const order1 = new Order ("LAY1","คือไร งง","01/01/2025","03/01/2025",OrderStatus.NEW,[lineItem],0)
+const shopping = new Shopping_Cart(order1)
 const pay1 = new Payment("Pay1", new Date("01-01-2025"), 3000, "จ่ายแล้วคั้บ");
 
-function process(
-    shopping: Shopping_Cart,
-  user1: WebUser,
-  order1: Order,
-  lineItem: LineItem,
-  pay1: Payment
-  ) {
-    let receipt = `
-   ================================================
-                ใบเสร็จการซื้อสินค้า
-================================================
-ผู้ใช้งาน: nabnoeyy
-วันที่สั่งซื้อ: 01/01/2025
-วันที่จัดส่ง: 03/01/2025
 
-สถานะคำสั่งซื้อ: NEW
-
-รายละเอียดสินค้า:
-----------------------------------------------
-ชื่อสินค้า: Kuay02
-หมายเลขสินค้า: BFJ02
-จำนวน: 4 ชิ้น
-ราคาต่อชิ้น: 569 บาท
-รวมเป็นเงิน: 2276 บาท
-
-รวมทั้งหมด: 0 บาท
-
-================================================
-การชำระเงิน:
-----------------------------------------------
-วิธีการชำระเงิน: Pay1
-วันที่ชำระ: 1/1/2025
-จำนวนเงินที่ชำระ: 3000 บาท
-สถานะการชำระเงิน: จ่ายแล้วคั้บ
-
-================================================
-ขอบคุณที่ใช้บริการ!
-================================================
-
-    `;
-    return receipt;
-}
-
-// แสดงผลใบเสร็จ
-console.log(process(shopping, user1, order1, lineItem, pay1));
+console.log (shopping.toString(),user1.getLoginId(),order1,lineItem,pay1)
 
 
 

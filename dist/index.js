@@ -66,49 +66,12 @@ const Product_1 = require("./Product");
 const OrderStatus_1 = require("./OrderStatus");
 const Payment_1 = require("./Payment");
 const user1 = new WebUser_1.WebUser("nabnoeyy", "1902n", UserState_1.UserState);
-const product = new Product_1.Product("Kuay02", "nabnoey", "BFJ02");
-const lineItem = new LineItem_1.LineItem(4, 569, product);
+const product = new Product_1.Product("Kuay02", "สมุดเวทมนต์", "BFJ02");
+const lineItem = new LineItem_1.LineItem(4, 569, product.getName());
 const order1 = new Order_1.Order("LAY1", "คือไร งง", "01/01/2025", "03/01/2025", OrderStatus_1.OrderStatus.NEW, [lineItem], 0);
 const shopping = new Shopping_Cart_1.Shopping_Cart(order1);
 const pay1 = new Payment_1.Payment("Pay1", new Date("01-01-2025"), 3000, "จ่ายแล้วคั้บ");
-function process(shopping, user1, order1, lineItem, pay1) {
-    let receipt = `
-   ================================================
-                ใบเสร็จการซื้อสินค้า
-================================================
-ผู้ใช้งาน: nabnoeyy
-วันที่สั่งซื้อ: 01/01/2025
-วันที่จัดส่ง: 03/01/2025
-
-สถานะคำสั่งซื้อ: NEW
-
-รายละเอียดสินค้า:
-----------------------------------------------
-ชื่อสินค้า: Kuay02
-หมายเลขสินค้า: BFJ02
-จำนวน: 4 ชิ้น
-ราคาต่อชิ้น: 569 บาท
-รวมเป็นเงิน: 2276 บาท
-
-รวมทั้งหมด: 0 บาท
-
-================================================
-การชำระเงิน:
-----------------------------------------------
-วิธีการชำระเงิน: Pay1
-วันที่ชำระ: 1/1/2025
-จำนวนเงินที่ชำระ: 3000 บาท
-สถานะการชำระเงิน: จ่ายแล้วคั้บ
-
-================================================
-ขอบคุณที่ใช้บริการ!
-================================================
-
-    `;
-    return receipt;
-}
-// แสดงผลใบเสร็จ
-console.log(process(shopping, user1, order1, lineItem, pay1));
+console.log(shopping.toString(), user1.getLoginId(), order1, lineItem, pay1);
 // console.log("#######################################")
 // import { Shopping_Cart } from "./Shopping_Cart"
 // import { Order } from "./Order"
