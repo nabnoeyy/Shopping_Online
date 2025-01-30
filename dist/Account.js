@@ -9,20 +9,33 @@ class Account {
         this.open = open;
         this.close = closed;
         this.shoppingCart = [];
+        this.payment = [];
+        this.orders = [];
     }
-    // public createShoppingCart(created:string):void{
-    //     const cart = new Shopping_Cart(created);
-    //     this.shoppingCart.push(cart)
-    // }
-    getshoppingCart() {
+    getShoppingCart() {
         return this.shoppingCart;
     }
-    closedAccount() {
+    closeAccount() {
         this.is_closed = true;
-        this.close = new Date().toString(); // บันทึกเวลาเมื่อปิดบัญชี
+        this.close = new Date().toString();
+    }
+    addOrder(order) {
+        this.orders.push(order);
+    }
+    addPayment(payment) {
+        this.payment.push(payment);
     }
     toString() {
-        return "Account[ID: " + this.id + "" + "Billing: " + this.billing_address + "" + "is_closed: " + this.is_closed + "" + "Open" + this.open + "" + "Closed: " + this.close + "" + "ShoppingCart: " + this.shoppingCart.map(cart => cart.toString()).join(", ") + "]";
+        return `Account[
+            ID: ${this.id}, 
+            Billing: ${this.billing_address}, 
+            Is Closed: ${this.is_closed}, 
+            Open: ${this.open}, 
+            Closed: ${this.close}, 
+            ShoppingCart: [${this.shoppingCart.map(cart => cart.toString()).join(", ")}],
+            Payments: [${this.payment.map(pay => pay.toString()).join(", ")}],
+            Orders: [${this.orders.map(order => order.toString()).join(", ")}]
+        ]`;
     }
 }
 exports.Account = Account;

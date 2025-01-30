@@ -1,26 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Shopping_Cart = void 0;
-class Shopping_Cart {
-    constructor(orders) {
-        // this.created = created
-        this.orders = [];
+exports.ShoppingCart = void 0;
+class ShoppingCart {
+    constructor(created) {
+        this.lineItem = [];
+        this.created = created;
     }
-    // public getCreated():string{
-    //     return this.created
-    // }
-    // // public setCreated(created:string):void{
-    // //     this.created = created
-    // }
-    addOrders(order) {
-        this.orders.push(order);
+    getCreated() {
+        return this.created;
     }
-    // Method สำหรับดึงข้อมูล Orders ทั้งหมด
-    getOrders() {
-        return this.orders; // คืนค่า Array ของ Order
+    setCreated(created) {
+        this.created = created;
+    }
+    getLineItem() {
+        return this.lineItem;
+    }
+    addLineItem(lineItem) {
+        this.lineItem.push(lineItem);
     }
     toString() {
-        return "ตะกร้าสินค้า: " + this.getOrders();
+        return "ตะกร้าสินค้า: [ lineItem: " + this.lineItem + "]";
     }
 }
-exports.Shopping_Cart = Shopping_Cart;
+exports.ShoppingCart = ShoppingCart;

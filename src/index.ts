@@ -88,7 +88,7 @@
 import { WebUser } from "./WebUser";
 import { Order } from "./Order";
 import { LineItem } from "./LineItem";
-import { Shopping_Cart } from "./Shopping_Cart";
+import { ShoppingCart } from "./Shopping_Cart";
 import { UserState } from "./UserState";
 import { Product } from "./Product";
 import { OrderStatus } from "./OrderStatus";
@@ -96,13 +96,17 @@ import { Payment } from "./Payment"
 
 const user1 = new WebUser ("nabnoeyy","1902n",UserState)
 const product = new Product ("Kuay02","สมุดเวทมนต์","BFJ02")
-const lineItem = new LineItem(4,569,product.getName())
-const order1 = new Order ("LAY1","คือไร งง","01/01/2025","03/01/2025",OrderStatus.NEW,[lineItem],0)
-const shopping = new Shopping_Cart(order1)
+const product2 = new Product ("Kuay03","ปากกา","BFJ03")
+const lineItem1 = new LineItem(4,569,product)
+const lineItem2 = new LineItem(1,60,product2)
+const shopping = new ShoppingCart("01/01/2025")
+const shopping2 = new ShoppingCart("01/01/2025")
+const order1 = new Order ("LAY1","คือไร งง","01/01/2025","03/01/2025",OrderStatus.NEW,[lineItem1],0)
+const order2 = new Order ("LAY2","คือไร งง","01/01/2025","03/01/2025",OrderStatus.NEW,[lineItem2],0)
 const pay1 = new Payment("Pay1", new Date("01-01-2025"), 3000, "จ่ายแล้วคั้บ");
 
 
-console.log (shopping.toString(),user1.getLoginId(),order1,lineItem,pay1)
+console.log (shopping,shopping2,user1.getLoginId(),order1,order2,pay1)
 
 
 

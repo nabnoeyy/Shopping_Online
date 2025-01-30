@@ -17,13 +17,6 @@ class Payment {
     getTotal() {
         return this.total;
     }
-    static calPay(payments) {
-        let totalPayment = 0;
-        for (let i = 0; i < payments.length; i++) {
-            totalPayment += payments[i].getTotal();
-        }
-        return totalPayment.toFixed(2);
-    }
     toString() {
         return "Payment[ID: " + this.id + "" + "Paid: " + this.paid + "" + "Total: " + this.total + "" + "Details: " + this.details + "" + "]";
     }

@@ -1,32 +1,28 @@
-import { Order  } from "./Order"
+import { LineItem } from "./LineItem"
+export class ShoppingCart{
+    private created : string
+    private lineItem : LineItem[]=[]
 
-export class Shopping_Cart {
-    // private created:string
-    private orders:Order[];
-
-    constructor (orders:Order){
-        // this.created = created
-        this.orders = [];
+    constructor (created:string){
+        this.created = created
     }
-    // public getCreated():string{
-    //     return this.created
-    // }
+
+    public getCreated():string{
+        return this.created
+    }
+
+    public setCreated(created:string):void{
+        this.created = created
+    }
     
-    // // public setCreated(created:string):void{
-    // //     this.created = created
-    // }
-    public addOrders(order:Order):void{
-        this.orders.push(order);
+    public getLineItem():LineItem[]{
+        return this.lineItem
     }
 
-     // Method สำหรับดึงข้อมูล Orders ทั้งหมด
-    public getOrders():Order[]{
-        return this.orders // คืนค่า Array ของ Order
+    public addLineItem(lineItem:LineItem):void{
+        this.lineItem.push(lineItem)
     }
-
-
-    public toString():string{
-      return "ตะกร้าสินค้า: "+this.getOrders()
+    public toString ():string{
+        return "ตะกร้าสินค้า: [ lineItem: " + this.lineItem+"]"
     }
-
 }

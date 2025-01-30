@@ -67,11 +67,15 @@ const OrderStatus_1 = require("./OrderStatus");
 const Payment_1 = require("./Payment");
 const user1 = new WebUser_1.WebUser("nabnoeyy", "1902n", UserState_1.UserState);
 const product = new Product_1.Product("Kuay02", "สมุดเวทมนต์", "BFJ02");
-const lineItem = new LineItem_1.LineItem(4, 569, product.getName());
-const order1 = new Order_1.Order("LAY1", "คือไร งง", "01/01/2025", "03/01/2025", OrderStatus_1.OrderStatus.NEW, [lineItem], 0);
-const shopping = new Shopping_Cart_1.Shopping_Cart(order1);
+const product2 = new Product_1.Product("Kuay03", "ปากกา", "BFJ03");
+const lineItem1 = new LineItem_1.LineItem(4, 569, product.getName());
+const lineItem2 = new LineItem_1.LineItem(1, 60, product2.getName());
+const shopping = new Shopping_Cart_1.ShoppingCart([lineItem1]);
+const shopping2 = new Shopping_Cart_1.ShoppingCart(lineItem2);
+const order1 = new Order_1.Order("LAY1", "คือไร งง", "01/01/2025", "03/01/2025", OrderStatus_1.OrderStatus.NEW, [lineItem1], 0);
+const order2 = new Order_1.Order("LAY2", "คือไร งง", "01/01/2025", "03/01/2025", OrderStatus_1.OrderStatus.NEW, [lineItem2], 0);
 const pay1 = new Payment_1.Payment("Pay1", new Date("01-01-2025"), 3000, "จ่ายแล้วคั้บ");
-console.log(shopping.toString(), user1.getLoginId(), order1, lineItem, pay1);
+console.log(shopping, shopping2, user1.getLoginId(), order1, order2, pay1);
 // console.log("#######################################")
 // import { Shopping_Cart } from "./Shopping_Cart"
 // import { Order } from "./Order"
